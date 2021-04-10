@@ -10,7 +10,7 @@ const path = require('path');
 const connectDb = require("./config/db") ; 
 connectDb() ; 
 const corsOption = {
-origin: process.env.ALLOWED_CLIENT.split(',')
+origin: ['http://localhost:3000' , 'http://localhost:5000']
 }
 app.use(cors(corsOption)); 
 app.set('views', path.join(__dirname , '/views')); 
