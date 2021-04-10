@@ -60,7 +60,7 @@ sendMail( {
   text: `${emailFrom} share a file with you`, 
   html: require('../services/emailTemplate')({
     emailFrom : emailFrom, 
-    downloadLink:`${process.env.APP_BASE_URL}/files/${uuid}`, 
+    downloadLink:`${process.env.APP_BASE_URL}files/${uuid}`, 
    size:parseInt(file.size/1000)+'KB', 
     expires:'24 hours' 
   })
