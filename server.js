@@ -6,12 +6,16 @@ const port = process.env.PORT || 5000 ;
 
 const path = require('path'); 
 
- app.use(express.static('public')); 
+ app.use(express.static('public'));
+ app.use('/images', express.static('images'));  
 const connectDb = require("./config/db") ; 
 connectDb() ; 
 const corsOption = {
 origin: ['http://localhost:3000' , 'http://localhost:5000']
 }
+app.get("/" , (req,res)=>{
+    res.render("index.ejs"); 
+})
 app.use(cors(corsOption)); 
 app.set('views', path.join(__dirname , '/views')); 
 
