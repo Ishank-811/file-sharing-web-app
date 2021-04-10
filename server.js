@@ -1,7 +1,7 @@
 const express = require("express") ; 
 const app = express() ;
 require('dotenv').config(); 
-// const cors = require('cors') ; 
+const cors = require('cors') ; 
 const port = process.env.PORT || 5000 ; 
 
 const path = require('path'); 
@@ -10,9 +10,9 @@ const path = require('path');
  app.use('/images', express.static('images'));  
 const connectDb = require("./config/db") ; 
 connectDb() ; 
-// const corsOption = {
-// origin: ['http://localhost:3000' , 'http://localhost:5000']
-// }
+const corsOption = {
+origin: ['http://localhost:3000' , 'http://localhost:5000']
+}
 app.get("/" , (req,res)=>{
     res.render("index.ejs"); 
 })
